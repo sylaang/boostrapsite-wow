@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+<div id="video-container" class="fullscreen-video-container">
+        <video video id="fullscreen-video" autoplay loop muted playsinline>
+            <source src="{{ asset('videos/homevideo.mp4') }}" type="video/mp4">
+            Votre navigateur ne prend pas en charge la balise video.
+        </video>
+        <div id="text-overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center text-lg-left">
+                        <span class="animated-text"></span>
+                    </div>
+                </div>
+            </div>
+          </div>
+    </div>
+    {% set cards = [
+        {
+            title: 'HUMAIN',
+            text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique ratione, cum quod quia expedita mollitia illo natus labore repellendus repellat. Excepturi non eos ipsam nihil?',
+            imageUrl: 'https://raidline.com/image/catalog/classic/gold/human-wow-classic-world-of-warcraft-male-gold-coins-boost-boosting-bronze-raidline.jpg'
+        },
+        {
+            title: 'ORC',
+            text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique ratione, cum quod quia expedita mollitia illo natus labore repellendus repellat. Excepturi non eos ipsam nihil?',
+            imageUrl: 'https://i.pinimg.com/originals/3e/a5/95/3ea595aef6bfcd439b5b2eb7486fa721.jpg'
+        },
+        {
+            title: 'Elf',
+            text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique ratione, cum quod quia expedita mollitia illo natus labore repellendus repellat. Excepturi non eos ipsam nihil?',
+            imageUrl: 'https://cdn.vox-cdn.com/thumbor/14C0sg6CN4yfvc7sQJdmmJNCOGE=/1400x0/filters:no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/2492514/blood_elves_wow_revamp.0.jpg'
+        },
+        {
+            title: 'Mort-Vivant',
+            text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique ratione, cum quod quia expedita mollitia illo natus labore repellendus repellat. Excepturi non eos ipsam nihil?',
+            imageUrl: 'https://static1.millenium.org/articles/9/34/44/69/@/1138845-forsaken-article_m-1.jpg'
+        }
+    ] %}
+    
+   <div class="container mt-5">
+    {% for card in cards %}
+        <div class="row mb-5">
+            <div class="col-md-6">
+                <div class="bg-image hover-overlay aspect-ratio" data-mdb-ripple-init data-mdb-ripple-color="light">
+                    <img src="{{ card.imageUrl }}" class="card-img-top aspect-ratio-item img-fluid" alt="Card image">
+                    <a href="#!">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6 d-flex align-items-center">
+                <div class="card-body text-center">
+                    <h2 class="card-title">{{ card.title }}</h2>
+                    <p class="card-text">{{ card.text }}</p>
+                    <a href="#!" class="btn btn-primary" data-mdb-ripple-init>Button</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
